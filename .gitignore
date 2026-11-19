@@ -1,0 +1,3 @@
+01-P-Py/logs/
+*.log
+__pycache__/
