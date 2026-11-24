@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Pro en Minutos — Generador Profesional</title>
+    <!-- Enlazamos los estilos propios de la interfaz web -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ondas decorativas de fondo inspiradas en diseño limpio moderno -->
+    <div class="bg-wave bg-wave-top" aria-hidden="true"></div>
+    <div class="bg-wave bg-wave-bottom" aria-hidden="true"></div>
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="brand" id="btn-logo-inicio">
+                <span class="brand-icon">CV</span>
+                <span class="brand-text">CV<strong>Pro</strong></span>
+            </a>
+
+            <nav class="nav-actions">
+                <button type="button" class="nav-link active" id="nav-inicio">Inicio</button>
+                <button type="button" class="btn-primary btn-sm" id="nav-comenzar">
+                    ▶ Crear CV
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="main-wrapper">
+
+        <!-- VISTA 1: PANTALLA DE BIENVENIDA (HERO) -->
+        <section id="vista-inicio" class="hero-section">
+            <div class="hero-badge">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+            </div>
+
+            <h1 class="hero-title">
+                ¿Listo para armar tu<br>
+                <span>CV profesional?</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Responde preguntas simples paso a paso, omite lo que no necesites y obtén un currículum limpio listo para descargar en PDF.
+            </p>
+
+            <button type="button" class="btn-primary btn-lg" id="btn-hero-comenzar">
+                ▶ Comenzar ahora
+            </button>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <span>Rápido y guiado</span>
+                </div>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span>Para cualquier oficio</span>
+                </div>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <span class="feature-icon">📄</span>
+                    <span>Sin registro</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 2: ASISTENTE PASO A PASO (WIZARD) -->
+        <section id="vista-asistente" class="wizard-section hidden">
+            <div class="wizard-card">
+
+                <!-- Barra de progreso superior -->
+                <div class="progress-header">
+                    <span id="texto-paso" class="step-indicator">Paso 1 de 7</span>
+                    <span id="porcentaje-paso" class="step-percent">14%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="barra-progreso" class="progress-fill" style="width: 14%;"></div>
+                </div>
+
+                <!-- Contenedor dinámico donde app.js dibuja la pregunta actual -->
+                <form id="formulario-paso" novalidate>
+                    <div id="contenedor-pregunta"></div>
+
+                    <!-- Botonera de navegación del asistente -->
+                    <div class="wizard-footer">
+                        <button type="button" class="btn-secondary" id="btn-anterior">
+                            ← Anterior
+                        </button>
+
+                        <div class="wizard-footer-right">
+                            <button type="button" class="btn-ghost" id="btn-omitir">
+                                Omitir paso
+                            </button>
+                            <button type="submit" class="btn-primary" id="btn-siguiente">
+                                Siguiente →
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+        <!-- VISTA 3: RESULTADO Y VISTA PREVIA DEL CV -->
+        <section id="vista-resultado" class="result-section hidden">
+            <div class="result-toolbar">
+                <div class="result-actions">
+                    <button type="button" class="btn-secondary" id="btn-volver-editar">
+                        ✎ Seguir editando
+                    </button>
+                    <button type="button" class="btn-primary" id="btn-descargar-pdf">
+                        ⬇ Descargar PDF
+                    </button>
+                    <button type="button" class="btn-secondary" id="btn-imprimir-cv">
+                        🖨 Imprimir
+                    </button>
+                </div>
+            </div>
+
+            <!-- Marco donde se inyecta la plantilla de plantilla_cv.js -->
+            <div class="cv-preview-wrapper">
+                <div id="contenedor-cv-final"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Cargamos primero la plantilla reemplazable y luego la lógica principal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="plantilla_cv.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
